@@ -1,0 +1,21 @@
+npm install --save-dev karma-phantomjs2-launcher
+
+udate karma.conf.js:
+
+...
+    browsers: ['PhantomJS2', 'PhantomJS2_custom'],
+
+    // you can define custom flags
+    customLaunchers: {
+      'PhantomJS2_custom': {
+        base: 'PhantomJS2',
+        options: {
+          windowName: 'my-window',
+          settings: {
+            webSecurityEnabled: false
+          },
+        },
+        flags: ['--load-images=true'],
+        debug: true
+      }
+...
